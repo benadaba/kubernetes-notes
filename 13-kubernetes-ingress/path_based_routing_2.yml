@@ -1,0 +1,22 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: ingress-resource-2
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: path.datapandasconsulting.com
+    http:
+      paths:
+      # Default Path(/)
+      - backend:
+          serviceName: springapp
+          servicePort: 80
+      - path: /maven-web-application
+        backend:
+          serviceName: mavenwebapp
+          servicePort: 80	
+      - path: /blue
+        backend:
+          serviceName: bluesvc
+          servicePort: 80	
